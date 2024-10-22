@@ -28,13 +28,16 @@ function knightMoves(startPosition, endPosition) {
 
         for (const [dx, dy] of potentialMoves) {
             const next = [current[0] + dx, current[1] + dy]
-            if (next[0] >= 0 && next[0] < 8 && next[1] >= 0 && next[1] < 8 && !visited.has(next.toString())) {
+            if (validatePosition(next[0], next[1]) && !visited.has(next.toString())) {
                 visited.add(next.toString())
                 queue.push([next, [...path, next]])
             }
-            
         }
     }
+}
+
+function validatePosition(x, y) {
+    return x >= 0 && x < 8 && y >= 0 && y < 8
 }
 
 

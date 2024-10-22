@@ -15,6 +15,11 @@ function knightMoves(startPosition, endPosition) {
 
     visited.add(startPosition.toString())
 
+    if (startPosition[0] > 7 || startPosition[0] < 0 || startPosition[1] > 7 || startPosition[1] < 0 || endPosition[0] > 7 || endPosition[0] < 0 || endPosition[1] > 7 || endPosition[1] < 0) {
+        console.log("Start or End Position coordinates are invalid, ensure all points are between 0 - 7!")
+        return
+    }
+
     while (queue.length > 0) {
         const [current, path] = queue.shift()
 
